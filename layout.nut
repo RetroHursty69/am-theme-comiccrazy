@@ -10,9 +10,10 @@ class UserConfig {
 </ label="--------    Miscellaneous    --------", help="Miscellaneous options", order=7 /> uct6="select below";
    </ label="Enable monitor static effect", help="Show static effect when snap is null", options="No,Yes", order=8 /> enable_static="Yes";
    </ label="Background", help="Background", options="Backdrop", order=9 /> enable_cab="Backdrop";
+   </ label="Enable random colors", help="Enable random colors", options="Yes,No", order=11 /> enable_colors="Yes";
    </ label="Enable game information", help="Show game information", options="Yes,No", order=10 /> enable_ginfo="Yes";
    </ label="Enable text frame", help="Show text frame", options="Yes,No", order=11 /> enable_frame="Yes";
-   </ label="Enable box art", help="Select box art", options="Yes,No", order=12 /> enable_gboxart="Yes"; 
+   </ label="Enable box art", help="Select box art", options="Yes,No", order=12 /> enable_gboxart="No"; 
 }  
 
 local my_config = fe.get_config();
@@ -74,6 +75,7 @@ surface_snap.rotation = 1;
 
 
 // Load background based up emulator
+local b_art = fe.add_image("backgrounds/Default.png", 0, 0, flw, flh );
 local b_art = fe.add_image("backgrounds/[DisplayName]", 0, 0, flw, flh );
 b_art.alpha=255;
 
@@ -116,11 +118,11 @@ listbox.sel_blue = 0;
 if ( my_config["enable_list_type"] == "vert_wheel" )
 {
 fe.load_module( "conveyor" );
-local wheel_x = [ flx*0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.02, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, ]; 
+local wheel_x = [ flx*0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, ]; 
 	local wheel_y = [ -fly*0.22, -fly*0.105, fly*0.0, fly*0.105, fly*0.215, fly*0.325, fly*0.440, fly*0.565, fly*0.680 fly*0.795, fly*0.910, fly*0.99, ];
-	local wheel_w = [  336,  336,  336,  336,  336,  336, 380,  336,  336,  336,  336,  336, ];
+	local wheel_w = [  250,  250,  250,  250,  250,  250, 275,  250,  250,  250,  250,  250, ];
 	local wheel_a = [  150,  150,  150,  150,  150,  150, 235,  150,  150,  150,  150,  150, ];
-	local wheel_h = [  116,  116,  116,  116,  116,  116, 140,  116,  116,  116,  116,  116, ];
+	local wheel_h = [  75,  75,  75,  75,  75,  75, 100,  75,  75,  75,  75,  75, ];
 	local wheel_r = [  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ];
 
 local num_arts = 8;
@@ -290,19 +292,8 @@ local next = fe.add_image("nextgame.swf", 100, 1000, 240, 77);
 
 
 //System Logos
-if ( my_config["enable_slogos"] == "Yes")  
-{
-local slogos = fe.add_image("slogos/[Emulator]", flx*0.001, fly*0.18, flw*0.11, flh*0.05 );
-slogos.trigger = Transition.EndNavigation;
-slogos.rotation = -15; 
-}		
 
 //Game MFR Logos
-if ( my_config["enable_mlogos"] == "Yes")  
-{
-local mlogos = fe.add_image("mlogos/[Manufacturer]", flx*0.01, fly*0.945, flw*0.06, flh*0.05 );
-mlogos.trigger = Transition.EndNavigation;
-}		
 
 // random number for the RGB levels
 if ( my_config["enable_colors"] == "Yes" )
