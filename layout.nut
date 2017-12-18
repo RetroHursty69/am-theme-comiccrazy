@@ -118,7 +118,7 @@ listbox.sel_blue = 0;
 if ( my_config["enable_list_type"] == "vert_wheel" )
 {
 fe.load_module( "conveyor" );
-local wheel_x = [ flx*0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, flx* 0.04, ]; 
+local wheel_x = [ flx*0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, flx* 0.03, ]; 
 	local wheel_y = [ -fly*0.22, -fly*0.105, fly*0.0, fly*0.105, fly*0.215, fly*0.325, fly*0.440, fly*0.565, fly*0.680 fly*0.795, fly*0.910, fly*0.99, ];
 	local wheel_w = [  250,  250,  250,  250,  250,  250, 275,  250,  250,  250,  250,  250, ];
 	local wheel_a = [  150,  150,  150,  150,  150,  150, 235,  150,  150,  150,  150,  150, ];
