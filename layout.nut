@@ -286,7 +286,7 @@ GenreImage1(glogo1);
 
 /////////////////////////////
 //Next Game Joystick
-local next = fe.add_image("nextgame.swf", 100, 1000, 240, 77);
+local next = fe.add_image("nextgame.swf", flx*0.025, fly*0.945, 0.156*flh, 0.05*flh);
 ////////////////////////////
 
 
